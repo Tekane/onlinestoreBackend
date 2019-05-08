@@ -26,7 +26,7 @@ public class CategoryService {
         category1.setImageUrl("tk.jpg");
 
         Category category2 = new Category();
-        category2.setId(1);
+        category2.setId(2);
         category2.setName("Mobile");
         category2.setDescription("Testing categories");
         category2.setImageUrl("mobile.jpg");
@@ -37,5 +37,14 @@ public class CategoryService {
 
     public List<Category> getCategories(){
         return  categories;
+    }
+    public Category getCategoryById(int categoryId){
+
+        for (Category category : categories) {
+            if(category.getId() ==  categoryId){
+                return category;
+            }
+        }
+        return  null;
     }
 }
