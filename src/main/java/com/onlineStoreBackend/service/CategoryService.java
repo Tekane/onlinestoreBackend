@@ -4,6 +4,7 @@ import com.onlineStoreBackend.model.Category;
 import com.onlineStoreBackend.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,8 +14,10 @@ import java.util.List;
  * @author tekane
  */
 @Service
+@ComponentScan("com.onlineStoreBackend.repository")
 public class CategoryService {
-
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     private static List<Category> categories = new ArrayList<>();
 
@@ -46,5 +49,8 @@ public class CategoryService {
             }
         }
         return  null;
+    }
+    public void addCategory(Category category){
+        this.categoryRepository.save(category);
     }
 }

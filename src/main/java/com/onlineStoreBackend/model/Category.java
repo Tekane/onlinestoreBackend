@@ -1,11 +1,21 @@
 package com.onlineStoreBackend.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "category")
 public class Category {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "description")
     private String description;
+    @Column(name = "image_url")
     private String imageUrl;
+    @Column(name = "is_active")
     private boolean active =  true;
 
     public Category(int id, String name, String description, String imageUrl, boolean active) {
@@ -57,5 +67,16 @@ public class Category {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", active=" + active +
+                '}';
     }
 }
