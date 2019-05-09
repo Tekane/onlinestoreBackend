@@ -19,38 +19,29 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    private static List<Category> categories = new ArrayList<>();
 
-    static {
-        Category category1 = new Category();
-        category1.setId(1);
-        category1.setName("TV");
-        category1.setDescription("Testing categories");
-        category1.setImageUrl("tk.jpg");
-
-        Category category2 = new Category();
-        category2.setId(2);
-        category2.setName("Mobile");
-        category2.setDescription("Testing categories");
-        category2.setImageUrl("mobile.jpg");
-        categories.add(category2);
-        categories.add(category1);
-    }
-
-
-    public List<Category> getCategories(){
-        return  categories;
-    }
     public Category getCategoryById(int categoryId){
-
-        for (Category category : categories) {
-            if(category.getId() ==  categoryId){
-                return category;
-            }
-        }
-        return  null;
+        Category category = this.categoryRepository.getOne(categoryId);
+        return category;
     }
+
     public void addCategory(Category category){
         this.categoryRepository.save(category);
     }
+
+    public void updateCategory(int categoryId , Category upDatedCategory){
+        Category category =  this.categoryRepository.getOne(categoryId);
+        category.setName(upDatedCategory.getName());
+        category.setImageUrl(upDatedCategory.getImageUrl());
+        category.setActive(true);
+        category.setDescription(upDatedCategory.getDescription());
+        this.categoryRepository.save(category);
+    }
+
+    public void deleteCategory(int categoryId){
+        Category category =  this.categoryRepository.getOne(categoryId);
+        this.categoryRepository.delete(category);
+    }
+
+
 }
