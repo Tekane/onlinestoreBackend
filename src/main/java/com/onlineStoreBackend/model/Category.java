@@ -16,14 +16,16 @@ public class Category {
     @Column(name = "image_url")
     private String imageUrl;
     @Column(name = "is_active")
-    private boolean active =  true;
+    private String active;
+    @Transient
+    private boolean is_active =  true;
 
-    public Category(int id, String name, String description, String imageUrl, boolean active) {
-        this.id = id;
+    public Category(String name, String description, String imageUrl, String active, boolean is_active) {
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
         this.active = active;
+        this.is_active = is_active;
     }
 
     public Category() {
@@ -61,12 +63,20 @@ public class Category {
         this.imageUrl = imageUrl;
     }
 
-    public boolean isActive() {
+    public String getActive() {
         return active;
     }
 
-    public void setActive(boolean active) {
+    public void setActive(String active) {
         this.active = active;
+    }
+
+    public boolean getIs_active() {
+        return is_active;
+    }
+
+    public void setIs_active(boolean is_active) {
+        this.is_active = is_active;
     }
 
     @Override
@@ -76,7 +86,8 @@ public class Category {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
-                ", active=" + active +
+                ", active='" + active + '\'' +
+                ", is_active=" + is_active +
                 '}';
     }
 }

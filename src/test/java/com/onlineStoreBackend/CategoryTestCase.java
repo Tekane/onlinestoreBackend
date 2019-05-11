@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CategoryTestCase {
@@ -16,12 +18,11 @@ public class CategoryTestCase {
     @Autowired
     private CategoryService categoryService;
 
-   // @Test
+    //@Test
     public void testAddCategory(){
         Category category1 = new Category();
-        category1.setId(1);
-        category1.setName("TV");
-        category1.setDescription("Testing categories");
+        category1.setName("Camera");
+        category1.setDescription("LG");
         category1.setImageUrl("tk.jpg");
 
         this.categoryService.addCategory(category1);
@@ -31,13 +32,25 @@ public class CategoryTestCase {
         Category category =  this.categoryService.getCategoryById(1);
         System.out.println(category.getName());
     }
-    @Test
+    //@Test
     public void updateCategory(){
-        Category category = new Category();
-        category.setName("TestUpdate");
-        category.setDescription("Testing update");
-        category.setActive(true);
+
+        Category category = this.categoryService.getCategoryById(1);
+        category.setName("Accessories");
+        category.setDescription("Mobile Speakers");
         category.setImageUrl("testing.jpg");
         this.categoryService.updateCategory(1,category);
+    }
+    //@Test
+    public void deleteCategory(){
+        categoryService.deleteCategory(1);
+    }
+    @Test
+    public void getAllActiveCategories(){
+        List<Category> categories = categoryService.getActiveCategories();
+        for (Category category:categories) {
+            System.out.println(category.getName());
+            System.out.println(category.getDescription());
+        }
     }
 }
