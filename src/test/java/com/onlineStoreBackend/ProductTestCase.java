@@ -33,7 +33,7 @@ public class ProductTestCase {
     public void getProductById(){
         Product product = productService.getProductById(2);
     }
-    @Test
+   // @Test
     public void deleteProduct(){
         productService.deleteProduct(1);
     }
@@ -48,9 +48,9 @@ public class ProductTestCase {
     public void getAllActiveProducts(){
         List<Product> products = productService.getActiveProducts();
     }
-    //@Test
+    @Test
     public void getAllActiveProductsByCategoryId(){
-        List<Product> products = productService.getAcitveProductsByCategory(2);
+        List<Product> products = productService.getActiveProductsByCategory(2);
     }
 
 

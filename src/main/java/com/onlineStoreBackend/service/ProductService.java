@@ -72,7 +72,7 @@ public class ProductService {
         return productRepository.findActiveProducts();
      }
      //Return all active products by category
-    public List<Product> getAcitveProductsByCategory(int categoryId){
+    public List<Product> getActiveProductsByCategory(int categoryId){
         return productRepository.findAcitveProductsByCategory(categoryId);
      }
      //Return all latest active products
