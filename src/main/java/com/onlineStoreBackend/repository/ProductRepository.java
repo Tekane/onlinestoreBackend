@@ -11,7 +11,7 @@ public interface ProductRepository extends JpaRepository<Product,Integer>{
     @Query("FROM Product as pd WHERE pd.active = 'TRUE'")
     List<Product> findActiveProducts();
     @Query("FROM Product as pd WHERE pd.active = 'TRUE' and pd.categoryId = ?1")
-    List<Product> findAcitveProductsByCategory(int categoryId);
+    List<Product> findActiveProductsByCategory(int categoryId);
     @Query("FROM Product as pd where pd.active = 1 order by id")
     List<Product> findLatestActiveProducts(int count);
 }
