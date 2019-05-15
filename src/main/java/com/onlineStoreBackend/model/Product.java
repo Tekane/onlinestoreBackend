@@ -27,7 +27,7 @@ public class Product {
     private  int purchases;
     private  int views;
     @Transient
-    private  boolean isActive = true;
+    private  boolean isActive = false;
 
     //Generating a unique Id for product code
     public Product() {
@@ -133,4 +133,23 @@ public class Product {
     public String getActive() { return active; }
 
     public void setActive(String active) { this.active = active; }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", brand='" + brand + '\'' +
+                ", description='" + description + '\'' +
+                ", unitPrice=" + unitPrice +
+                ", quantity=" + quantity +
+                ", active='" + active + '\'' +
+                ", categoryId=" + categoryId +
+                ", supplierId=" + supplierId +
+                ", purchases=" + purchases +
+                ", views=" + views +
+                ", isActive=" + isActive +
+                '}';
+    }
 }
