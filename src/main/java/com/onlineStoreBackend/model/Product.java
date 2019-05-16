@@ -1,6 +1,7 @@
 package com.onlineStoreBackend.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -34,6 +35,8 @@ public class Product {
     private  int views;
     @Transient
     private  boolean isActive = false;
+    @Transient
+    private MultipartFile file;
 
     //Generating a unique Id for product code
     public Product() {
@@ -139,6 +142,14 @@ public class Product {
     public String getActive() { return active; }
 
     public void setActive(String active) { this.active = active; }
+
+    public boolean isActive() { return isActive; }
+
+    public void setActive(boolean active) { isActive = active; }
+
+    public MultipartFile getFile() { return file; }
+
+    public void setFile(MultipartFile file) { this.file = file; }
 
     @Override
     public String toString() {
