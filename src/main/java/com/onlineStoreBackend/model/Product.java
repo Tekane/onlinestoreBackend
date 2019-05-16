@@ -3,19 +3,25 @@ package com.onlineStoreBackend.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
 @Entity
-//@JsonIgnoreProperties(value = {})
+@JsonIgnoreProperties(value = {"active","categoryId","supplierId","description"})
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
     private  String code;
+    @NotBlank(message = "Please enter product name!")
     private  String name;
+    @NotBlank(message = "Please enter brand name!")
     private  String brand;
+    @NotBlank(message = "Please enter description for product!")
     private  String description;
     @Column(name = "unit_price")
+    @Min(value = 1,message = "The price cannot less be less than one!")
     private  double unitPrice;
     private  int quantity;
     @Column(name = "is_active")
