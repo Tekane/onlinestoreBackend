@@ -48,7 +48,7 @@ public class ProductTestCase {
     public void getAllActiveProducts(){
         List<Product> products = productService.getActiveProducts();
     }
-    @Test
+    //@Test
     public void getAllActiveProductsByCategoryId(){
         List<Product> products = productService.getActiveProductsByCategory(2);
     }

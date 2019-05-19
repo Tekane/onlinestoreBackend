@@ -41,12 +41,8 @@ public class ProductService {
     public void updateProduct(int productId , Product productDetails){
         Product product =  productRepository.findById(productId).orElseThrow(()->
                 new ResourceNotFoundException("Product","productId",productId));
+
         product.setBrand(productDetails.getBrand());
-        if (productDetails.getIsActive() == true){
-            product.setActive("TRUE");
-        }else {
-            product.setActive("FALSE");
-        }
         product.setCode(productDetails.getCode());
         product.setDescription(productDetails.getDescription());
         product.setName(productDetails.getName());

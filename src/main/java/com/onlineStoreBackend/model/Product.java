@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
 @Entity
-@JsonIgnoreProperties(value = {"active","categoryId","supplierId","description"})
+@JsonIgnoreProperties(value = {"categoryId","supplierId","description","file"})
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
