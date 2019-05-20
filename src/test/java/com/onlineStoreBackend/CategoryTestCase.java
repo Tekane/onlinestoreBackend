@@ -23,7 +23,6 @@ public class CategoryTestCase {
         Category category1 = new Category();
         category1.setName("Camera");
         category1.setDescription("LG");
-        category1.setImageUrl("tk.jpg");
 
         this.categoryService.addCategory(category1);
     }
@@ -38,7 +37,6 @@ public class CategoryTestCase {
         Category category = this.categoryService.getCategoryById(1);
         category.setName("Accessories");
         category.setDescription("Mobile Speakers");
-        category.setImageUrl("testing.jpg");
         this.categoryService.updateCategory(1,category);
     }
     //@Test

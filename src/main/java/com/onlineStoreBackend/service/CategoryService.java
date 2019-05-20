@@ -41,7 +41,6 @@ public class CategoryService {
                 .orElseThrow(()-> new ResourceNotFoundException("Category","categoryId",categoryId));
 
         category.setName(upDatedCategory.getName());
-        category.setImageUrl(upDatedCategory.getImageUrl());
         if (upDatedCategory.getIs_active() == true){
             category.setActive("TRUE");
         }else {

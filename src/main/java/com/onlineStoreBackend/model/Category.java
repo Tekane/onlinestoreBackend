@@ -13,17 +13,14 @@ public class Category {
     private String name;
     @Column(name = "description")
     private String description;
-    @Column(name = "image_url")
-    private String imageUrl;
     @Column(name = "is_active")
     private String active;
     @Transient
     private boolean is_active =  true;
 
-    public Category(String name, String description, String imageUrl, String active, boolean is_active) {
+    public Category(String name, String description, String active, boolean is_active) {
         this.name = name;
         this.description = description;
-        this.imageUrl = imageUrl;
         this.active = active;
         this.is_active = is_active;
     }
@@ -55,14 +52,6 @@ public class Category {
         this.description = description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
     public String getActive() {
         return active;
     }
@@ -85,7 +74,6 @@ public class Category {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", imageUrl='" + imageUrl + '\'' +
                 ", active='" + active + '\'' +
                 ", is_active=" + is_active +
                 '}';
